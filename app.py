@@ -6,7 +6,7 @@ import io
 
 # 페이지 설정
 st.set_page_config(page_title="영어 번역 문장 mp3파일 변환기", page_icon="🎯")
-st.title("🎯 AI 영어 트레이너")
+st.title("🎯 한국어 영어 번역및 음성파일 생성기")
 st.markdown("---")
 
 # 번역기 초기화
