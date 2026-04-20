@@ -21,7 +21,8 @@ st.markdown("---")
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
     # Add 'models/' before the model name to specify the path.
-    model = genai.GenerativeModel('models/gemini-1.5-flash')
+    # model = genai.GenerativeModel('models/gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-pro')
 except Exception as e:
     st.error(f"Configuration error: {e}")
 
