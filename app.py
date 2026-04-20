@@ -5,7 +5,7 @@ from googletrans import Translator
 import io
 
 # 페이지 설정
-st.set_page_config(page_title="AI 영어 트레이너", page_icon="🎯")
+st.set_page_config(page_title="영어 번역 문장 mp3파일 변환기", page_icon="🎯")
 st.title("🎯 AI 영어 트레이너")
 st.markdown("---")
 
@@ -13,15 +13,15 @@ st.markdown("---")
 translator = Translator()
 
 # 1단계: 입력
-st.subheader("1단계: 훈련하고 싶은 한글 문장 입력")
+st.subheader("1단계: 한글 문장 입력하면 영어로 번역후, mp3 로 변환합니다.")
 kor_text = st.text_input(
     label="훈련 문장 입력", 
-    placeholder="예: 나이가 많아 회사에서 나가라고 해. 나만의 브랜드를 만들고 싶어.",
+    placeholder="예: 나이가 많아 회사에서 나가라고 해. 나만의 길을 찾고 싶어.",
     label_visibility="collapsed"
 )
 
 if kor_text:
-    with st.spinner('문장을 영어로 변환하고 음성을 생성 중입니다...'):
+    with st.spinner('한국어 문장을 영어로 변환하고 음성을 생성 중입니다...'):
         try:
             # 2단계: 구글 번역 (한 -> 영)
             # 수평적 사고: 구글 번역은 직역 느낌이 날 수 있으므로, 결과가 나오면 낭독 훈련에 집중합니다.
