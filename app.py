@@ -1,3 +1,4 @@
+import re  # 상단에 re 모듈 추가
 import streamlit as st
 import asyncio
 import edge_tts
@@ -41,6 +42,14 @@ kor_text = st.text_input(
 
 # 4. 핵심 실행 로직
 if kor_text:
+    # 한국어 포함 여부 체크 (한글 음절 범위: 가-힣)
+    has_korean = re.search('[가-힣]', kor_text)
+    
+    if not has_korean:
+        # 한국어가 없으면 경고 메시지 출력 후 정지
+        st.warning("⚠️ 문장에 한국어가 포함되어 있지 않습니다. 한국어로 입력해 주세요!")
+        st.stop()  # 이후 로직(번역, TTS) 실행 안 함
+            
     with st.spinner('문장을 변환하고 음성을 생성 중입니다...'):
         try:
             # [Step 1] 구글 번역 (한 -> 영)
