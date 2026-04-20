@@ -85,7 +85,8 @@ if kor_text:
                     label="📥 MP3 다운로드",
                     data=audio_bytes,
                     file_name=f"{safe_filename}.mp3",
-                    mime="audio/mp3"
+                    # mime="audio/mp3"
+                    mime="audio/mpeg"
                 )
             
             st.info(f"💡 현재 설정: **{voice_name}** / 속도 **{rate_str}**")
