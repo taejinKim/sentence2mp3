@@ -24,9 +24,11 @@ try:
     # model = genai.GenerativeModel('models/gemini-1.5-flash')
     # model = genai.GenerativeModel('gemini-pro')
     # model = genai.GenerativeModel('gemini-1.5-flash') 
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel(model_name='models/gemini-1.5-flash')
 except Exception as e:
-    st.error(f"Configuration error: {e}")
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    # st.error(f"Configuration error: {e}")
 
 
 # 3. 사용자 입력 섹션
