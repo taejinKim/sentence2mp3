@@ -10,7 +10,9 @@ try:
 except:
     st.error("API 키 설정이 필요합니다.")
 
-model = genai.GenerativeModel('gemini-1.5-flash') # 무료 속도가 빠른 모델
+#model = genai.GenerativeModel('gemini-1.5-flash') # 무료 속도가 빠른 모델
+model = genai.GenerativeModel('gemini-1.0-pro') # 에러나서 대체함
+
 
 st.title("🎯 AI 영어 트레이너")
 st.write("한글 문장을 입력하면 원어민 표현으로 바꾸고 음성을 생성합니다.")
