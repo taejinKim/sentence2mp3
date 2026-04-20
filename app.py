@@ -6,8 +6,8 @@ from googletrans import Translator
 import io
 
 # 1. 페이지 설정
-st.set_page_config(page_title="AI 영어 트레이너", page_icon="🎯")
-st.title("🎯 AI 영어 트레이너")
+st.set_page_config(page_title="영어 문장 mp3 생성기", page_icon="🎯")
+st.title("🎯 영문장 mp3생성기")
 st.markdown("---")
 
 # 2. 사이드바 설정 (목소리 및 속도)
@@ -49,7 +49,7 @@ if kor_text:
         # 한국어가 없으면 경고 메시지 출력 후 정지
         st.warning("⚠️ 문장에 한국어가 포함되어 있지 않습니다. 한국어로 입력해 주세요!")
         st.stop()  # 이후 로직(번역, TTS) 실행 안 함
-            
+
     with st.spinner('문장을 변환하고 음성을 생성 중입니다...'):
         try:
             # [Step 1] 구글 번역 (한 -> 영)
