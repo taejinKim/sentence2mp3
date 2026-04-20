@@ -10,8 +10,12 @@ try:
 except:
     st.error("API 키 설정이 필요합니다.")
 
-model = genai.GenerativeModel('gemini-1.5-flash') # 무료 속도가 빠른 모델
-#model = genai.GenerativeModel('gemini-1.0-pro') # 에러나서 대체함
+# 기존: model = genai.GenerativeModel('gemini-1.5-flash')
+# 수정: 모델의 전체 경로를 명시합니다.
+try:
+    model = genai.GenerativeModel('models/gemini-1.5-flash')
+except:
+    model = genai.GenerativeModel('gemini-1.5-flash') # 대비책
 
 
 
