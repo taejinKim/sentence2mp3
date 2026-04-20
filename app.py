@@ -10,13 +10,21 @@ st.title("🎯 AI 영어 트레이너")
 st.markdown("---")
 
 # 2. Gemini API 설정 (Streamlit Secrets 사용)
+# try:
+#     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+#     # 1.5 flash 모델이 속도와 비용 면에서 가장 효율적입니다.
+#     model = genai.GenerativeModel('gemini-1.5-flash')
+# except Exception as e:
+#     st.error(f"API 키 설정 확인 필요: {e}")
+#     st.stop()
+
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    # 1.5 flash 모델이 속도와 비용 면에서 가장 효율적입니다.
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Add 'models/' before the model name to specify the path.
+    model = genai.GenerativeModel('models/gemini-1.5-flash')
 except Exception as e:
-    st.error(f"API 키 설정 확인 필요: {e}")
-    st.stop()
+    st.error(f"Configuration error: {e}")
+
 
 # 3. 사용자 입력 섹션
 st.subheader("1단계: 훈련하고 싶은 한글 문장 입력")
