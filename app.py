@@ -11,12 +11,15 @@ except:
     st.error("API 키 설정이 필요합니다.")
 
 # 기존: model = genai.GenerativeModel('gemini-1.5-flash')
-# 수정: 모델의 전체 경로를 명시합니다.
 try:
-    model = genai.GenerativeModel('models/gemini-1.5-flash')
-except:
-    model = genai.GenerativeModel('gemini-1.5-flash') # 대비책
-
+    # 모델명 앞에 아무것도 붙이지 않거나, 아래와 같이 시도합니다.
+    model = genai.GenerativeModel(model_name='gemini-1.5-flash')
+    
+    # 만약 위 코드로도 안 된다면, 아래의 직접 호출 방식을 시도하세요.
+    # response = model.generate_content(prompt) 대신 아래 사용
+    # response = genai.get_model('models/gemini-1.5-flash')
+except Exception as e:
+    st.error(f"모델 설정 오류: {e}")
 
 
 st.title("🎯 AI 영어 트레이너")
